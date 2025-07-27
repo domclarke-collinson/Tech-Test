@@ -6,8 +6,8 @@ function sortArray(a, b) {
 
 // define the arrays (need to pull from test file once created)
 
-const arrayP = [4, 4, 2, 4];
-const arrayS = [5, 5, 2, 5];
+const arrayP = [2, 3, 4, 2, 10];
+const arrayS = [2, 5, 7, 2];
 
 // calculate the number of people total and number of spaces in the cars
 
@@ -20,6 +20,14 @@ let totalS = 0;
 for (let a = 0; a < arrayS.length; a++) {
     totalS = totalS + arrayS[a];
 }
+
+// check if theres enough seats for all people, if not then stop and output error 
+
+if (totalS - totalP < 0) {
+        console.log (`TOO MANY PEOPLE, NOT ENOUGH CARS`)
+    }
+    else if (totalS - totalP >= 0) {
+
 
 // sort the car list for capacity from largest to smallest 
 // need to adjust the sort function to be largest to smallest
@@ -54,6 +62,8 @@ while (peoplePlaced < totalP && carIndex < arraySorder.length) {
 const totalCars = (carIndex);
 
 console.log (`Total Cars Needed:`, totalCars);
+        }
+
 
 //examples from test doc 
 
