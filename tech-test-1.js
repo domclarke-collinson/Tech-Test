@@ -6,8 +6,8 @@ function sortArray(a, b) {
 
 // define the arrays (need to pull from test file once created)
 
-const arrayP = [1, 4, 1];
-const arrayS = [1, 5, 1];
+const arrayP = [4, 4, 2, 4];
+const arrayS = [5, 5, 2, 5];
 
 // calculate the number of people total and number of spaces in the cars
 
@@ -32,35 +32,36 @@ const arraySorder = [...arrayS.sort(sortArray)];
 let peoplePlaced = 0;
 let carIndex = 0;
 
-// while total people not yet seated <= 0
+// fill current car one seat at a time
+        // increment peoplePlaced
+        // stop if peoplePlaced === totalP
+    // move to next car
+
 while (peoplePlaced < totalP && carIndex < arraySorder.length) {
     const seatsPerCar = arraySorder[carIndex];
 
     for (let seat = 0; seat < seatsPerCar; seat++) {
         if (peoplePlaced === totalP) break;
         peoplePlaced++;
-        console.log(`Person ${peoplePlaced} in car ${carIndex + 1}`);
+        // console.log(`Person ${peoplePlaced} in car ${carIndex + 1}`);
 
     }
     carIndex++;
 }
-    // fill current car one seat at a time
-        // increment peoplePlaced
-        // stop if peoplePlaced === totalP
-    // move to next car
 
+//output the number of cars total needed :)
 
-// Loop through each car seating people until all people have a seat!
+const totalCars = (carIndex);
 
-
-
+console.log (`Total Cars Needed:`, totalCars);
 
 //examples from test doc 
 
 
 //To be Commented out:
-console.log ("People array:", arrayP);
-console.log ("Car array:",arrayS);
-console.log ("People total:",totalP);
-console.log ("Car capacity total:",totalS);
-console.log ("Cars in decending order of seats:", arraySorder);
+// console.log ("People array:", arrayP);
+// console.log ("Car array:",arrayS);
+// console.log ("People total:",totalP);
+// console.log ("Car capacity total:",totalS);
+// console.log ("Cars in decending order of seats:", arraySorder);
+// console.log (`Total Cars Needed:`, totalCars);
