@@ -20,7 +20,7 @@ function placePeopleInCars(arrayP, arrayS) {
 
     if (totalS - totalP < 0) {
     console.log(`TOO MANY PEOPLE, NOT ENOUGH CARS`)
-        return;
+        return `TOO MANY PEOPLE, NOT ENOUGH CARS`;
     }
 
     //sort arrayS descending

@@ -18,7 +18,7 @@ describe('placePeopleInCars', () => {
     });
 
     it('should return 3 when three cars are needed', () => {
-        const arrayP = [2, 2, 2, 2, 2];
+        const arrayP = [2, 2, 2, 2];
         const arrayS = [3, 3, 3];
 
         const result = placePeopleInCars(arrayP, arrayS);
@@ -30,7 +30,7 @@ describe('placePeopleInCars', () => {
         const arrayS = [4, 4, 4];
 
         const result = placePeopleInCars(arrayP, arrayS);
-        expect(result).toBeUndefined();
+        expect(result).toBe(`TOO MANY PEOPLE, NOT ENOUGH CARS`);
     });
 
     it('should return 0 if no people', () => {
