@@ -6,73 +6,43 @@ function sortArray(a, b) {
 
 // define the arrays (need to pull from test file once created)
 
-const arrayP = [2, 3, 4, 2, 10];
-const arrayS = [2, 5, 7, 2];
+const arrayP = [];
+const arrayS = [];
 
-// calculate the number of people total and number of spaces in the cars
+function placePeopleInCars(arrayP, arrayS) {
 
-// let totalP = 0;
-// for (let a = 0; a < arrayP.length; a++) {
-//     totalP = totalP + arrayP[a];
-// }
+    //add up arrays
 
-// let totalS = 0;
-// for (let a = 0; a < arrayS.length; a++) {
-//     totalS = totalS + arrayS[a];
-// }
+    const totalP = arrayP.reduce((acc, val) => acc + val, 0);
+    const totalS = arrayS.reduce((acc, val) => acc + val, 0);
 
-// // check if theres enough seats for all people, if not then stop and output error 
-
-// if (totalS - totalP < 0) {
-//     console.log(`TOO MANY PEOPLE, NOT ENOUGH CARS`)
-// }
-// else {
-
-    // // sort the car list for capacity from largest to smallest
-
-    // const arraySorder = [...arrayS.sort(sortArray)];
-
-    // //loop through each value in arraySorder until i= vlaue of each number in array and then move to next value in array, stop when i = total people
-
-    // let peoplePlaced = 0;
-    // let carIndex = 0;
- 
-    // //remove all bad code!
-    // while (peoplePlaced < totalP && carIndex < arraySorder.length) {
-    //     const seatsPerCar = arraySorder[carIndex];
-
-    //     for (let seat = 0; seat < seatsPerCar; seat++) {
-    //         if (peoplePlaced === totalP) break;
-    //         peoplePlaced++;
-    //         // console.log(`Person ${peoplePlaced} in car ${carIndex + 1}`);
-
-    //     }
-    //     carIndex++;
-    // }
-
-function placePeopleInCars(P, S) {
-    const totalP = P.reduce((acc, val) => acc + val, 0);
-    const totalS = S.reduce((acc, val) => acc + val, 0);
+    //check for zero error
 
     if (totalS - totalP < 0) {
     console.log(`TOO MANY PEOPLE, NOT ENOUGH CARS`)
         return;
     }
+
+    //sort arrayS descending
     
     const arraySorder = [...arrayS.sort(sortArray)];
 let peoplePlaced = 0;
     let carIndex = 0;
-
-    while (peoplePlaced < totalP && carIndex < sortedS.length) {
+    //loop through
+    while (peoplePlaced < totalP && carIndex < arraySorder.length) {
         peoplePlaced += arraySorder[carIndex];
         carIndex++;
     }
-    //output the number of cars total needed :)
 
+    //output the number of cars total needed :)
     console.log(`Total Cars Needed:`, carIndex);
+        return carIndex;
 }
 
 placePeopleInCars(arrayP, arrayS);
+
+module.exports = placePeopleInCars;
+
 
 //examples from test doc
 
