@@ -2,50 +2,64 @@ const placePeopleInCars = require('./code.js');
 
 describe('placePeopleInCars', () => {
     it('should place people in cars correctly', () => {
-        const arrayP = [1, 2, 3, 4, 5];
-        const arrayS = [3, 4, 2, 1, 5, 10];
+        const people = [1, 2, 3, 4, 5];
+        const seats = [3, 4, 2, 1, 5, 10];
 
-        const result = placePeopleInCars(arrayP, arrayS);
+        const result = placePeopleInCars(people, seats);
         expect(result).toBe(2);
     });
 
     it('should return 1 when one car can fit all people', () => {
-        const arrayP = [2, 2, 2];
-        const arrayS = [10];
+        const people = [2, 2, 2];
+        const seats = [10];
 
-        const result = placePeopleInCars(arrayP, arrayS);
+        const result = placePeopleInCars(people, seats);
         expect(result).toBe(1);
     });
 
     it('should return 3 when three cars are needed', () => {
-        const arrayP = [2, 2, 2, 2];
-        const arrayS = [3, 3, 3];
+        const people = [2, 2, 2, 2];
+        const seats = [3, 3, 3];
 
-        const result = placePeopleInCars(arrayP, arrayS);
+        const result = placePeopleInCars(people, seats);
         expect(result).toBe(3);
     });
 
-    it('should return undefined if not enough seats', () => {
-        const arrayP = [5, 5, 5];
-        const arrayS = [4, 4, 4];
+    it('should return Error if not enough seats', () => {
+        const people = [5, 5, 5];
+        const seats = [4, 4, 4];
 
-        const result = placePeopleInCars(arrayP, arrayS);
-        expect(result).toBe(`TOO MANY PEOPLE, NOT ENOUGH CARS`);
+        const result = placePeopleInCars(people, seats);
+        expect(result).toBe(`Error_not_enough_seats`);
     });
 
     it('should return 0 if no people', () => {
-        const arrayP = [];
-        const arrayS = [1, 2, 3];
+        const people = [];
+        const seats = [1, 2, 3];
 
-        const result = placePeopleInCars(arrayP, arrayS);
+        const result = placePeopleInCars(people, seats);
         expect(result).toBe(0);
     });
 
     it('should return 0 if no cars and no people', () => {
-        const arrayP = [];
-        const arrayS = [];
+        const people = [];
+        const seats = [];
 
-        const result = placePeopleInCars(arrayP, arrayS);
+        const result = placePeopleInCars(people, seats);
         expect(result).toBe(0);
+    });
+    it('should return "Invalid input" if people array contains undefined', () => {
+        const people = [undefined, 2, 2];
+        const seats = [4, 4, 4];
+
+        const result = placePeopleInCars(people, seats);
+        expect(result).toBe("Invalid input");
+    });
+    it('should return "Invalid input" if people array contains non numbers', () => {
+        const people = ["a", 2, 2];
+        const seats = [4, 4, 4];
+
+        const result = placePeopleInCars(people, seats);
+        expect(result).toBe("Invalid input");
     });
 });
