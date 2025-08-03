@@ -1,9 +1,9 @@
-// Sort function
+// Reverse order sort
 function sortArray(a, b) {
     return b - a
 };
 
-// define the arrays (need to pull from test file once created)
+// define the arrays
 const people = [];
 const seats = [];
 
@@ -11,6 +11,7 @@ function placePeopleInCars(people, seats) {
     //add up arrays
     const totalPeople = people.reduce((acc, val) => acc + val, 0);
     const totalSeats = seats.reduce((acc, val) => acc + val, 0);
+
     //check for zero error
     if (totalSeats - totalPeople < 0) {
         return `Error_not_enough_seats`;
@@ -27,12 +28,13 @@ function placePeopleInCars(people, seats) {
     }
     
     //sort seats descending
-    const seatsOrder = [...seats.sort(sortArray)];
+    const orderedSeats = [...seats.sort(sortArray)];
     let peoplePlaced = 0;
     let carIndex = 0;
+    
     //loop through
-    while (peoplePlaced < totalPeople && carIndex < seatsOrder.length) {
-        peoplePlaced += seatsOrder[carIndex];
+    while (peoplePlaced < totalPeople && carIndex < orderedSeats.length) {
+        peoplePlaced += orderedSeats[carIndex];
         carIndex++;
     }
 
